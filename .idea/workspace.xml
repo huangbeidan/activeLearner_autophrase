@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cae7946c-f690-4944-8de5-97225ff83d6e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iSqewQvEetkjpiczI0XSO4hPT7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lsh_example" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lsh_example" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lsh_example" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.lsh_autophrase">
+    <configuration name="lsh" type="PythonConfigurationType" factoryName="Python">
+      <module name="fall2020" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lsh_example" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lsh_example/lsh_example.py" />
+      <option name="PARAMETERS" value="-q input.txt -t target.txt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="lsh_autophrase" type="PythonConfigurationType" factoryName="Python">
+      <module name="fall2020" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lsh_example" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lsh_example/lsh_autophrase.py" />
+      <option name="PARAMETERS" value="-q AutoPhrase_multi-words.txt -t AutoPhrase_multi-words.txt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.lsh" />
+      <item itemvalue="Python.lsh_autophrase" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cae7946c-f690-4944-8de5-97225ff83d6e" name="Default Changelist" comment="" />
+      <created>1601911439202</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601911439202</updated>
+      <workItem from="1601911445808" duration="9826000" />
+      <workItem from="1602064629101" duration="78000" />
+      <workItem from="1602885628314" duration="401000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602885838223">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state x="549" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1602885838223" />
+    <state x="2307" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601923785831" />
+    <state width="1476" height="205" key="GridCell.Tab.0.bottom" timestamp="1602062365758">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="255" key="GridCell.Tab.0.bottom/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601933535634" />
+    <state width="1476" height="255" key="GridCell.Tab.0.bottom/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601924264559" />
+    <state width="1476" height="205" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1602062365758" />
+    <state width="1476" height="205" key="GridCell.Tab.0.center" timestamp="1602062365757">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="255" key="GridCell.Tab.0.center/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601933535634" />
+    <state width="1476" height="255" key="GridCell.Tab.0.center/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601924264558" />
+    <state width="1476" height="205" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1602062365757" />
+    <state width="1476" height="205" key="GridCell.Tab.0.left" timestamp="1602062365757">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="255" key="GridCell.Tab.0.left/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601933535633" />
+    <state width="1476" height="255" key="GridCell.Tab.0.left/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601924264557" />
+    <state width="1476" height="205" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1602062365757" />
+    <state width="1476" height="205" key="GridCell.Tab.0.right" timestamp="1602062365758">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="255" key="GridCell.Tab.0.right/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601933535634" />
+    <state width="1476" height="255" key="GridCell.Tab.0.right/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601924264558" />
+    <state width="1476" height="205" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1602062365758" />
+    <state width="1476" height="205" key="GridCell.Tab.1.bottom" timestamp="1602062365761">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="205" key="GridCell.Tab.1.bottom/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601930975229" />
+    <state width="1476" height="315" key="GridCell.Tab.1.bottom/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601923712920" />
+    <state width="1476" height="205" key="GridCell.Tab.1.bottom/0.23.1680.952@0.23.1680.952" timestamp="1602062365761" />
+    <state width="1476" height="205" key="GridCell.Tab.1.center" timestamp="1602062365759">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="205" key="GridCell.Tab.1.center/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601930975228" />
+    <state width="1476" height="315" key="GridCell.Tab.1.center/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601923712919" />
+    <state width="1476" height="205" key="GridCell.Tab.1.center/0.23.1680.952@0.23.1680.952" timestamp="1602062365759" />
+    <state width="1476" height="205" key="GridCell.Tab.1.left" timestamp="1602062365758">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="205" key="GridCell.Tab.1.left/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601930975228" />
+    <state width="1476" height="315" key="GridCell.Tab.1.left/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601923712919" />
+    <state width="1476" height="205" key="GridCell.Tab.1.left/0.23.1680.952@0.23.1680.952" timestamp="1602062365758" />
+    <state width="1476" height="205" key="GridCell.Tab.1.right" timestamp="1602062365760">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state width="1476" height="205" key="GridCell.Tab.1.right/0.23.1680.952/1680.-157.1920.1057@0.23.1680.952" timestamp="1601930975228" />
+    <state width="1476" height="315" key="GridCell.Tab.1.right/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1601923712920" />
+    <state width="1476" height="205" key="GridCell.Tab.1.right/0.23.1680.952@0.23.1680.952" timestamp="1602062365760" />
+    <state x="2294" y="185" key="com.intellij.ide.util.TipDialog" timestamp="1602885729953">
+      <screen x="1680" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="2294" y="185" key="com.intellij.ide.util.TipDialog/0.23.1680.952/1680.-157.1920.1057@1680.-157.1920.1057" timestamp="1602885729953" />
+    <state x="537" y="331" key="com.intellij.ide.util.TipDialog/0.23.1680.952@0.23.1680.952" timestamp="1602079187301" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/fall2020$lsh_autophrase.coverage" NAME="lsh_autophrase Coverage Results" MODIFIED="1601933535624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lsh_example" />
+    <SUITE FILE_PATH="coverage/fall2020$lsh.coverage" NAME="lsh Coverage Results" MODIFIED="1601923787070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lsh_example" />
+  </component>
+</project>
