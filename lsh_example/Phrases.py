@@ -23,8 +23,10 @@ class Phrases:
 
     def __init__(self):
         self.phrases = []
+        self.phrases_num = []
         self.phrase_labels_dict=defaultdict()
         self.word2phrase = defaultdict()
+        self.token2word = defaultdict()
         self.load_content_v2("/home/beidan/AutoPhrase/tmp/intermediate_labels.txt")
 
     def _get_phrases(self):
@@ -71,6 +73,8 @@ class Phrases:
                 pp = Phrase()
                 pp.add_phrase(idx, score, tokens_raw, phrase_clean, label)
                 self.phrases.append(pp)
+                self.phrases_num.append(tokens_raw)
                 self.phrase_labels_dict[phrase_clean] = label
                 self.word2phrase[phrase_clean] = pp
+                self.token2word[tokens_raw] = pp
 
