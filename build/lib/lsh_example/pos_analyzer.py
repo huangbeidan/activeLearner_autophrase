@@ -12,18 +12,35 @@ import ast
 import dill
 from tqdm import tqdm
 
-from lsh_example.Phrases import Phrases
+from active_learner.Phrases import Phrases
 
 class PosTag_Query_Fetcher:
-    def __init__(self):
-        self.phrase_interface = Phrases()
+    def __init__(self, phrase_interface, tokenized_train_dir="input/tokenized_train.txt",
+                 tokenized_postags_train_dir="input/pos_tags_tokenized_train.txt",
+                 thres_unique_counts=5, thres_parent_chil_diff=0.1):
+
+        """
+        :param phrase_interface:
+        :param tokenized_train_dir: tmp result from Autophrase
+        :param tokenized_postags_train_dir: tmp result from Autophrase
+        :param thres_unique_counts: threshold 1
+        :param thres_parent_chil_diff:  threshold 2
+
+        Example files have been put under input/ directory
+        """
+
+        self.phrase_interface = phrase_interface
         self.phrases = self.phrase_interface.phrases
         self.token2phrase_dict = self.phrase_interface.token2word
+        self.tokenized_train_dir = tokenized_train_dir
+        self.tokenized_postags_train_dir = tokenized_postags_train_dir
+        self.thres_unique_counts = thres_unique_counts
+        self.thres_parent_chil_diff = thres_parent_chil_diff
 
 
     def get_all_tokens(self):
         tokens = []
-        with open('/home/beidan/AutoPhrase/tmp/tokenized_train.txt') as content:
+        with open(self.tokenized_train_dir) as content:
             cnt = 0
             for line in content:
                 vector = line.split(' ')
@@ -34,7 +51,7 @@ class PosTag_Query_Fetcher:
 
     def get_all_tags(self):
         tags = []
-        with open('/home/beidan/AutoPhrase/tmp/pos_tags_tokenized_train.txt') as content:
+        with open(self.tokenized_postags_train_dir) as content:
             for line in content:
                 tags.append(line.strip().replace("\n", ""))
             print("total tags: ", len(tags))
@@ -121,8 +138,8 @@ class PosTag_Query_Fetcher:
 
 
     def pos_pattern_generator(self):
-        if os.path.isfile("pos_tags_patterns_backup"):
-            pos_tags_patterns = dill.load(open('pos_tags_patterns_backup', 'rb'))
+        if os.path.isfile("tmp/pos_tags_patterns_backup"):
+            pos_tags_patterns = dill.load(open('tmp/pos_tags_patterns_backup', 'rb'))
         else:
             pos_tags_dict, scores_dict = self.find_pos_tag_patterns()
             # pos_tags_patterns_backup should be like: posTag : [score1, score2, score3 .... ]
@@ -134,7 +151,7 @@ class PosTag_Query_Fetcher:
                 score = scores_dict[phr]
                 for pos in pos_tags_dict[phr]:
                     pos_tags_patterns[pos].append(score)
-            dill.dump(pos_tags_patterns, open('pos_tags_patterns_backup', 'wb'))
+            dill.dump(pos_tags_patterns, open('tmp/pos_tags_patterns_backup', 'wb'))
 
         # 2nd time and onwards, load from pickle
         return pos_tags_patterns
@@ -155,7 +172,7 @@ class PosTag_Query_Fetcher:
 
         pos_tags_statistics_df = pd.DataFrame.from_dict(pos_tags_statistics, orient='index')
         pos_tags_statistics_df.columns = ['weighted_mean','freq','min','max','std']
-        pos_tags_statistics_df.to_csv('pos_tags_statistics.csv', index=True)
+        pos_tags_statistics_df.to_csv('tmp/pos_tags_statistics.csv', index=True)
         return pos_tags_patterns
 
 
@@ -170,30 +187,14 @@ class PosTag_Query_Fetcher:
     def query_pos_tags_1(self):
         unique_set = self.get_pos_tag_unique_count()
         unique_set = sorted(unique_set.items(), key=lambda x:x[1], reverse=True)
-        output = [phr[0] for phr in unique_set if phr[1] > 5]
+        #TODO: THRESHOLD1
+        output = [phr[0] for phr in unique_set if phr[1] > self.thres_unique_counts]
         return output
 
     def query_pos_tags_2(self):
         # find sub-chunks whose score differs a lot from parents'
         tokens = [p.tokens for p in self.phrases]
         tokens.sort()
-
-        # i = 0
-        # res = []
-        # while i < len(tokens):
-        #     j = i
-        #     tmp = []
-        #     if i < len(tokens) - 1 and tokens[j] in tokens[i + 1]:
-        #         tmp.append(tokens[j])
-        #         while i < len(tokens) - 1 and tokens[j] in tokens[i + 1]:
-        #             tmp.append(tokens[i + 1])
-        #             i += 1
-        #     if len(tmp) > 0 and abs(
-        #             float(self.token2phrase_dict[tmp[0]].quality) - float(self.token2phrase_dict[tmp[-1]].quality)) > 0.2:
-        #         tmp = [self.token2phrase_dict[t] for t in tmp]
-        #         res.append(tmp)
-        #     i += 1
-        # return res
 
         i = 0
         res = defaultdict(lambda: 0)
@@ -210,7 +211,7 @@ class PosTag_Query_Fetcher:
                     float(self.token2phrase_dict[tmp[0]].quality) - float(
                         self.token2phrase_dict[tmp[-1]].quality))
                 # TODO: Threshold can be set here
-                if diff > 0.1:
+                if diff > self.thres_parent_chil_diff:
                     #tmp = [self.token2phrase_dict[t] for t in tmp]
                     res[str(tmp)] = diff
             i += 1
@@ -225,22 +226,17 @@ class PosTag_Query_Fetcher:
 
 
 if __name__ == "__main__":
-    # get_all_tokens()
-    # get_all_tags()
-    # phrases_raw = Phrases().phrases_num
-    # phrases = Phrases().phrases
-    # tokens = get_all_tokens()
-    # indices, len_target = find_one("2 865 4 433", tokens)
-    # # for idx in indices:
-    # #     print(tokens[idx] + " " + tokens[idx+1]+ " " + tokens[idx+2]+ " " + tokens[idx+3])
-    # print("target has a length of: ", len_target)
 
-    #find_pos_tag_patterns()
+    token_mapping_dir = "input/token_mapping.txt"
+    intermediate_labels_dir = "input/intermediate_labels.txt"
 
-    pos_interface = PosTag_Query_Fetcher()
+    phrases_interface = Phrases(token_mapping_dir, intermediate_labels_dir)
+
+    pos_interface = PosTag_Query_Fetcher(phrases_interface)
     # pos_tags_patterns_backup = pos_interface.analyzer()
     # query_pos_tags_1()
-    res = pos_interface.query_pos_tags_2()
+    # res1 = pos_interface.query_pos_tags_2()
+    res2 = pos_interface.query_pos_tags_1()
 
 
 

@@ -1,0 +1,12 @@
+README.md
+setup.py
+active_learner/Phrases.py
+active_learner/__init__.py
+active_learner/al_autophrase.py
+active_learner/lsh_analyzer.py
+active_learner/lsh_autophrase.py
+active_learner/pos_analyzer.py
+active_learner.egg-info/PKG-INFO
+active_learner.egg-info/SOURCES.txt
+active_learner.egg-info/dependency_links.txt
+active_learner.egg-info/top_level.txt

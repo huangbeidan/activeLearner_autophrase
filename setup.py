@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="active-learner-autophrase", # Replace with your own username
-    version="0.0.1",
+    name="active_learner", # Replace with your own username
+    version="1.1.0",
     author="Beidan Huang",
     author_email="huangbeidan@gmail.com",
     description="Active Learner for Phrase Extraction",

@@ -4,7 +4,7 @@
 import argparse
 from collections import defaultdict
 
-from lsh_example.Phrases import Phrases
+from active_learner.Phrases import Phrases
 
 SEED = 3
 

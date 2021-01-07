@@ -1,0 +1,8 @@
+idx,words,score,label
+35417,point cloud,0.9057088938,1
+37675,3gpp ts,0.7993767779,0
+59382,3gpp ts 36.300,0.6367675289,0
+36922,car body,0.9069726432,0
+69712,point cloud data,0.6719640121,0
+70974,closed cycle mhd,0.8884581387,0
+48394,reference distance,0.7277677518,0
