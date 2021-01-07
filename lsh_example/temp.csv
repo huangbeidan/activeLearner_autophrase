@@ -1,7 +1,8 @@
 idx,words,score,label
-10542,oriented database,0.7662927099,0
-10188,world wide,0.7457910225,0
-10310,object oriented,0.9326551176,1
-10645,world wide web,0.9118650149,1
-10011,data mining,0.9467443490,1
-10659,oriented database systems,0.6398832922,0
+35417,point cloud,0.9057088938,1
+37675,3gpp ts,0.7993767779,0
+59382,3gpp ts 36.300,0.6367675289,0
+36922,car body,0.9069726432,0
+69712,point cloud data,0.6719640121,0
+70974,closed cycle mhd,0.8884581387,0
+48394,reference distance,0.7277677518,0

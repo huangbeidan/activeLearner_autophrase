@@ -10,6 +10,7 @@ from lsh_example.Phrases import Phrases
 
 SEED = 3
 
+
 class LSH_Autophrase:
 
     def __init__(self, phrases_input):
@@ -18,7 +19,7 @@ class LSH_Autophrase:
         self.phrases_lsh = phrases_input
 
     def load_tokens_mapping(self):
-        tokens_dict = defaultdict(lambda : ' ')
+        tokens_dict = defaultdict(lambda: ' ')
         words_to_tokens_dict = defaultdict()
         with open('/home/beidan/AutoPhrase/tmp/token_mapping.txt') as content:
             for line in content:
@@ -34,10 +35,9 @@ class LSH_Autophrase:
     def load_content_v3(self, phrases):
         sentences = {}
         for phrase in phrases:
-            sentences[phrase.words] = phrase.words+'\t'+phrase.quality
+            sentences[phrase.words] = phrase.words + '\t' + phrase.quality
 
         return sentences
-
 
     def load_content_v2(self, sentence_file):
         sentences = {}
@@ -53,7 +53,6 @@ class LSH_Autophrase:
                     score = cans[2]
                     tokens_raw = cans[3]
 
-
                     for tk in tokens_raw.split(' '):
                         phrase += self.tokens_dict[tk]
                         phrase += " "
@@ -68,10 +67,6 @@ class LSH_Autophrase:
                         self.scores_dict[phrase_clean] = score
 
         return sentences
-
-
-
-
 
     def create_lsh(self, content, no_of_bands, n_permutations, n_gram):
         """Create Minhash and Locality Sensitive Hashing (LSH) to detect near duplicate texts.
@@ -97,8 +92,8 @@ class LSH_Autophrase:
 
         return lsh
 
-
-    def find_near_duplicate(self, query_sentences, sentences, min_jaccard_value, no_of_bands, n_permutations, n_gram):
+    def find_near_duplicate(self, query_sentences, sentences, min_jaccard_value, no_of_bands, n_permutations, n_gram,
+                            outputdir="output/lsh_autophrase_output.txt"):
         """Using LSH object finds the near duplicate strings.
 
         Args:
@@ -116,7 +111,7 @@ class LSH_Autophrase:
 
         i = 0
         seen = set()
-        with open('lsh_autophrase_output.txt', 'w') as f1:
+        with open(outputdir, 'w') as f1:
             for index_query, search_string in enumerate(query_sentences):
                 closest_results = lsh.query(i, min_jaccard=min_jaccard_value)
                 if not i in seen and len(closest_results) > 1:
@@ -142,46 +137,32 @@ class LSH_Autophrase:
                     seen.add(i)
                 i += 1
 
-
-    def parse_args(self):
-        """Parse args entered by the user.
-
-        Returns:
-            argparse.Namespace: Parsed arguments.
+    def main(self, min_jaccard_value=0.25, n_gram=2, n_permutations=100, no_of_bands=50):
 
         """
-        parser = argparse.ArgumentParser(
-            description="Detect near duplicate texts using Minhash and Locality Sensitive Hashing.",
-            epilog="example > python3 find_near_duplicate.py  -q INPUT -t TARGERS")
-        parser.add_argument("-q", "--query", help="Path to file with sentences to query", required=True)
-        parser.add_argument("-t", "--targets", help="Path to file with sentences be matched against", required=True)
-        parser.add_argument("-g", "--n_gram", help="Size of each overlapping text shingle to break text into "
-                                                   "prior to hashing", default=2)
-        parser.add_argument("-p", "--n_permutations", help="Number of permutations used to create minhash signatures used "
-                                                           "in LSH model.", default=100)
-        parser.add_argument("-j", "--min_jaccard", help="Jaccard similarity threshold texts have to exceed to be "
-                                                        "returned as similar.", default=0.25)
-        parser.add_argument("-b", "--no_of_bands", help="Number of bands to break minhash signature into "
-                                                        "before hashing into buckets..", default=50)
-        return parser.parse_args()
+        :param min_jaccard_value: Jaccard similarity threshold texts have to exceed to be
+        :param n_gram: Size of each overlapping text shingle to break text into prior to hashing
+        :param n_permutations: Number of permutations used to create minhash signatures used
+        :param no_of_bands: Number of bands to break minhash signature into
+        :return: dir for saving the lsh results
+        """
 
-
-    def main(self):
-        args = self.parse_args()
-
-        query = args.query
-        targets = args.targets
-        min_jaccard_value = float(args.min_jaccard)
-        n_gram = int(args.n_gram)
-        n_permutations = int(args.n_permutations)
-        no_of_bands = int(args.no_of_bands)
+        min_jaccard_value = 0.25
+        n_gram = 2
+        n_permutations = 100
+        no_of_bands = 50
 
         # load sentences from file (v2 is the autophrase version)
         query_sentences = self.load_content_v3(self.phrases_lsh)
         targets_sentences = self.load_content_v3(self.phrases_lsh)
 
+        outputdir = "output/lsh_autophrase_output.txt"
+
         # find near duplicate sequences to `search_string`
-        self.find_near_duplicate(query_sentences, targets_sentences, min_jaccard_value, no_of_bands, n_permutations, n_gram)
+        self.find_near_duplicate(query_sentences, targets_sentences, min_jaccard_value, no_of_bands, n_permutations,
+                                 n_gram, outputdir)
+
+        return outputdir
 
 
 if __name__ == "__main__":

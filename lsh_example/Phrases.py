@@ -21,20 +21,30 @@ class Phrase:
 
 class Phrases:
 
-    def __init__(self):
+    def __init__(self, token_mapping_dir="input/token_mapping.txt", intermediate_labels_dir="input/intermediate_labels.txt"):
+        """
+        :param token_mapping_dir: Immediate output from AutoPhrase
+        :param intermediate_labels_dir: Intermediate labels produced by AL-Autophrase: https://github.com/huangbeidan/AutoPhrase
+
+        Example files have been put under input/ folder
+        """
         self.phrases = []
         self.phrases_num = []
         self.phrase_labels_dict=defaultdict()
         self.word2phrase = defaultdict()
         self.token2word = defaultdict()
-        self.load_content_v2("/home/beidan/AutoPhrase/tmp/intermediate_labels.txt")
+
+        self.token_mapping_dir = token_mapping_dir
+        self.intermediate_labels_dir = intermediate_labels_dir
+
+        self.load_content_v2(self.intermediate_labels_dir)
 
     def _get_phrases(self):
         return self.phrases
 
     def load_tokens_mapping(self):
         tokens_dict = defaultdict(lambda:' ')
-        with open('/home/beidan/AutoPhrase/tmp/token_mapping.txt') as content:
+        with open(self.token_mapping_dir) as content:
             for line in content:
                 line = line.strip()
                 cans = line.split('\t')
