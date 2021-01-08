@@ -84,7 +84,7 @@ To start interactive engine
     >>> from active_learner.lsh_analyzer import LSHAnalyzer
     >>> analyzer = LSHAnalyzer()
 
-There is example code in main.py
+This includes a complete workflow of lsh grouping, pos-tagging analysis, user-engine interaction and phrase relabeling
 
 parameters:
 
