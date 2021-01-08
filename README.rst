@@ -82,7 +82,7 @@ To start interactive engine
 .. code-block:: python
 
     >>> from active_learner.lsh_analyzer import LSHAnalyzer
-    >>> analyzer = analyzer = LSHAnalyzer()
+    >>> analyzer = LSHAnalyzer()
 
 There is example code in main.py
 
