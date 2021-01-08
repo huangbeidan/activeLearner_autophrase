@@ -77,14 +77,14 @@ Environment Setup
 
 Quickstart
 ==========
-To start interactive engine
+To start interactive engine:
 
 .. code-block:: python
 
     >>> from active_learner.lsh_analyzer import LSHAnalyzer
     >>> analyzer = LSHAnalyzer()
 
-This includes a complete workflow of lsh grouping, pos-tagging analysis, user-engine interaction and phrase relabeling
+- This includes a complete workflow of lsh grouping, pos-tagging analysis, user-engine interaction and phrase relabeling
 
 parameters:
 
